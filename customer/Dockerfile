@@ -1,5 +1,5 @@
 # Stage 1: Build
-FROM amazoncorretto:17-alpine AS builder
+FROM amazoncorretto:21-alpine AS builder
 WORKDIR /app
 COPY .mvn/ .mvn
 COPY mvnw pom.xml ./
@@ -8,7 +8,7 @@ COPY src ./src
 RUN ./mvnw clean package -DskipTests
 
 # Stage 2: Runtime
-FROM amazoncorretto:17-alpine
+FROM amazoncorretto:21-alpine
 WORKDIR /app
 COPY --from=builder /app/target/customer-*.jar customer-service.jar
 
