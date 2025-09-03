@@ -1,18 +1,20 @@
 package dev.cretara.customer.model;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.MappedSuperclass;
+import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
-import lombok.ToString;
 
 import java.time.LocalDateTime;
 
 @MappedSuperclass
 @Getter
 @Setter
-@ToString
 public class BaseEntity {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(updatable = false)
+    private Long id;
 
     @Column(updatable = false)
     private LocalDateTime createdAt;
@@ -20,10 +22,10 @@ public class BaseEntity {
     @Column(updatable = false)
     private String createdBy;
 
-    @Column(insertable = false)
+    @Column
     private LocalDateTime updatedAt;
 
-    @Column(insertable = false)
+    @Column
     private String updatedBy;
 
 }

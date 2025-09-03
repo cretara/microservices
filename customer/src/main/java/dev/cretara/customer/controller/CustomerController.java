@@ -8,8 +8,8 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("customers")
 public class CustomerController {
 
-    @GetMapping
-    public String greetings() {
+    @GetMapping("{id}")
+    public String getCustomerById() {
         return "Hello World";
     }
 

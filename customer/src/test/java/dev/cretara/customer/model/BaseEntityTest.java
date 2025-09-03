@@ -1,6 +1,5 @@
-package dev.cretara.customer.entity;
+package dev.cretara.customer.model;
 
-import dev.cretara.customer.model.BaseEntity;
 import org.instancio.Instancio;
 import org.instancio.Model;
 import org.instancio.settings.Keys;
